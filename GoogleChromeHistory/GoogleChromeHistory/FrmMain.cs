@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.Collections;
 using System.IO;
 using System.Data.SQLite;
-
+//10/27/17
 namespace GoogleChromeHistory
 {
     public partial class frmMain : Form
@@ -84,6 +84,7 @@ namespace GoogleChromeHistory
 
                 foreach (Process item in processNames)
                 {
+                    //kills item
                     item.Kill();
                 }
             }
@@ -101,6 +102,9 @@ namespace GoogleChromeHistory
             foreach (HistoryItem h in history)
                 lstHistory.Items.Add(h.toStringDisplay());
         }
+        //method that saves file dialog
+        //@param a string of text
+        //@returns either the name of saved file or null
         private String saveFileDialog(String text)
         {
             SaveFileDialog saveFile = new SaveFileDialog();
@@ -124,6 +128,7 @@ namespace GoogleChromeHistory
             url = URLNew;
             
         }
+        //to string method
         public string toStringDisplay()
         {
             return title + "  " +  domain+ "  " + url + " " +  visitedTime.ToString();
